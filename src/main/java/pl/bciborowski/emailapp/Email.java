@@ -17,17 +17,13 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
         this.department = setDepartment();
-        System.out.println("DEPARTMENT: " + this.department);
         this.password = randomPassword(defaultPasswordLength);
-        System.out.println("PASSWORD: " + this.password);
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + company.toLowerCase() + ".com";
-        System.out.println("EMAIL: " + email);
     }
 
     private String setDepartment() {
-        System.out.println("DEPARTMENT CODES:\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none");
+        System.out.println("WHAT IS YOUR DEPARTMENT CODE?:\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none");
         Scanner scanner = new Scanner(System.in);
         int departmentChoice = scanner.nextInt();
         if (departmentChoice == 1) {
@@ -52,18 +48,39 @@ public class Email {
 
     }
 
-    public void setMailboxCapacity(int capacity) {
+    void setMailboxCapacity(int capacity) {
         this.mailboxCapacity = capacity;
     }
 
-    public void setAlternateEmail(String alternateEmail) {
+    void setAlternateEmail(String alternateEmail) {
         this.alternateEmail = alternateEmail;
     }
 
-    public void changePassword(String password) {
+    void changePassword(String password) {
         this.password = password;
     }
-    //Create set methods to change password, set the mailbox capacity and define an alternate email
 
-    // Have get methods to display the name, email and mailbox capacity
+    String getEmail() {
+        return email;
+    }
+
+    int getMailboxCapacity() {
+        return mailboxCapacity;
+    }
+
+    String getAlternateEmail() {
+        return alternateEmail;
+    }
+
+    String getPassword() {
+        return password;
+    }
+
+    String showInfo() {
+        return "\nINFO:" +
+                "\nNAME: " + firstName + lastName +
+                "\nEMAIL: " + email +
+                "\nMAILBOX CAPACITY: " + mailboxCapacity +
+                "\nPASSWORD: " + password;
+    }
 }
