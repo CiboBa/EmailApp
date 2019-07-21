@@ -8,8 +8,9 @@ public class Email {
     private String lastName;
     private String password;
     private String department;
-    private String company;
-    private int mailboxCapacity;
+    private String company = "CarlosBros";
+    private String email;
+    private int mailboxCapacity = 500;
     private int defaultPasswordLength = 8;
     private String alternateEmail;
 
@@ -21,6 +22,8 @@ public class Email {
         System.out.println("DEPARTMENT: " + this.department);
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("PASSWORD: " + this.password);
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + company.toLowerCase() + ".com";
+        System.out.println("EMAIL: " + email);
     }
 
     private String setDepartment() {
@@ -38,8 +41,6 @@ public class Email {
         }
     }
 
-    //Generate a random password
-
     private String randomPassword(int length) {
         String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
         char[] password = new char[length];
@@ -51,6 +52,17 @@ public class Email {
 
     }
 
+    public void setMailboxCapacity(int capacity) {
+        this.mailboxCapacity = capacity;
+    }
+
+    public void setAlternateEmail(String alternateEmail) {
+        this.alternateEmail = alternateEmail;
+    }
+
+    public void changePassword(String password) {
+        this.password = password;
+    }
     //Create set methods to change password, set the mailbox capacity and define an alternate email
 
     // Have get methods to display the name, email and mailbox capacity
