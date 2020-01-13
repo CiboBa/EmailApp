@@ -8,7 +8,7 @@ public class Email {
     private String lastName;
     private String password;
     private String department;
-    private String company = "CarlosBros";
+    private String companySuffix = "CarlosBros.co.mx";
     private String email;
     private int mailboxCapacity = 500;
     private int defaultPasswordLength = 8;
@@ -17,9 +17,13 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        System.out.println("Email created for citizen : " + this.firstName + " " + this.lastName);
         this.department = setDepartment();
+        System.out.println("Your department is: " + this.department);
         this.password = randomPassword(defaultPasswordLength);
-        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + company.toLowerCase() + ".com";
+        System.out.println("Your password is: " + this.password);
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix.toLowerCase();
+        System.out.println("Your email is: " + this.email);
     }
 
     private String setDepartment() {
@@ -76,11 +80,13 @@ public class Email {
         return password;
     }
 
-    String showInfo() {
-        return "\nINFO:" +
-                "\nNAME: " + firstName + lastName +
+    void showInfo() {
+        String info = "\nINFO:" +
+                "\nNAME: " + firstName + " " + lastName +
                 "\nEMAIL: " + email +
+                "\nALTERNATE EMAIL: " + alternateEmail +
                 "\nMAILBOX CAPACITY: " + mailboxCapacity +
                 "\nPASSWORD: " + password;
+        System.out.println(info);
     }
 }

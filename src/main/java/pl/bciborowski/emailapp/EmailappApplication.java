@@ -15,8 +15,8 @@ public class EmailappApplication {
         email1.setAlternateEmail("abc@xyz.com");
         email1.setMailboxCapacity(100);
 
-        System.out.println(email1.showInfo());
-        //SpringApplication.run(EmailappApplication.class, args);
+        email1.showInfo();
+//        SpringApplication.run(EmailappApplication.class, args);
 
     }
 
